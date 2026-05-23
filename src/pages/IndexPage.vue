@@ -1,9 +1,21 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
-  </q-page>
+    <phaser-game ref="phaserRef" @current-active-scene="currentScene"/>
 </template>
+
+<script setup>
+import PhaserGame from '../game/PhaserGame.vue'
+import { ref } from 'vue'
+
+const phaserRef = ref()
+
+const currentScene = (scene) => {
+  // configure scene
+  console.log('CURRENT SCENE', scene)
+  return scene
+}
+
+</script>
+
+<style lang="scss">
+
+</style>

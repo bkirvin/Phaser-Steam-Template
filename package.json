@@ -1,8 +1,8 @@
 {
-  "name": "flingshot",
+  "name": "template",
   "version": "0.0.1",
   "description": "Quasar/Phaser game",
-  "productName": "Flingshot",
+  "productName": "Template",
   "author": "Bryan Irvin <bkirvin@gmail.com>",
   "type": "module",
   "private": true,
@@ -11,25 +11,31 @@
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
     "build": "quasar build",
-    "postinstall": "quasar prepare"
+    "postinstall": "quasar prepare",
+    "addElectron": "quasar mode add electron",
+    "build:electron:win": "quasar build -m electron -T Win32",
+    "build:electron:mac": "quasar build -m electron -T darwin"
   },
   "dependencies": {
-    "pinia": "^3.0.1",
     "@quasar/extras": "^1.16.4",
+    "phaser": "^4.1.0",
+    "pinia": "^3.0.1",
     "quasar": "^2.16.0",
     "vue": "^3.5.22",
     "vue-router": "^5.0.3"
   },
   "devDependencies": {
+    "@electron/packager": "^19.1.1",
     "@eslint/js": "^9.39.4",
+    "@quasar/app-vite": "^2.5.1",
+    "autoprefixer": "^10.4.27",
+    "electron": "^42.2.0",
     "eslint": "^9.39.4",
     "eslint-plugin-vue": "^10.8.0",
     "globals": "^17.4.0",
+    "postcss": "^8.5.8",
     "vite-plugin-checker": "^0.12.0",
-    "vue-eslint-parser": "^10.4.0",
-    "@quasar/app-vite": "^2.5.1",
-    "autoprefixer": "^10.4.27",
-    "postcss": "^8.5.8"
+    "vue-eslint-parser": "^10.4.0"
   },
   "engines": {
     "node": "^28 || ^26 || ^24 || ^22.12",
