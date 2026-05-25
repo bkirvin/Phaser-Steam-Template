@@ -26,7 +26,6 @@ export class PlayScene extends Scene {
   }
 
   update ( /* time, delta */ ) {
-    console.log('Play Scene')
 
   }
 }

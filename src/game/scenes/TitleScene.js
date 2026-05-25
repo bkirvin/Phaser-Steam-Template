@@ -2,7 +2,7 @@
 import { EventBus } from '../EventBus'
 import { Scene } from 'phaser'
 // import orient from '../orientation'
-// import Mitter from '../emitters'
+import Mitter from '../emitters'
 // import PMath from '../usePhaserMath'
 
 export class TitleScene extends Scene {
@@ -11,7 +11,14 @@ export class TitleScene extends Scene {
   }
 
   create () {
+    Mitter('burst', this, 'create')
+    Mitter('burst', this, 'override', 'beePop').start()
     EventBus.emit('current-scene-ready', this)
+  }
+
+  changeScene() {
+    console.log('change scene called')
+    this.scene.start('PlayScene')
   }
 
   update ( /* time, delta */) {

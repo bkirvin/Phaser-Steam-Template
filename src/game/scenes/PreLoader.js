@@ -31,6 +31,8 @@ export class Preloader extends Scene {
     this.load.setPath('assets')
 
     // /////////////// preload image
+    this.load.image('ember', 'ember.png')
+    this.load.image('star', 'star.png')
     // this.load.image('star', 'star.png')
 
     // ////////////// preload atlas

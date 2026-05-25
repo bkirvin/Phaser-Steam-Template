@@ -28,9 +28,11 @@ const next = () => {
 }
 const instructions1 = `Welcome to the Electron Phaser Steam Template. This NPM project utilizes
 Quasar, Electron, Vue and Phaser to provide a build environment for Phaser games in Steam.`
-const instructions2 = `This screen or series of screens can serve any branding, demo, login
+const instructions2 = `This screen, or series of screens, can serve any branding, demo, login
   or instruction pages needed prior to game play.`
+
 </script>
+
 <style lang="scss" scoped>
 #container {
   width: 100%;
