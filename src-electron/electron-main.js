@@ -5,8 +5,10 @@ import { fileURLToPath } from 'node:url'
 
 // needed in case process is undefined under Linux
 const platform = process.platform || os.platform()
-
+const steamworks = require('steamworks.js')
 const currentDir = fileURLToPath(new URL('.', import.meta.url))
+
+const STEAM_APP_ID = 480
 
 let mainWindow
 
@@ -53,7 +55,38 @@ async function createWindow () {
   })
 }
 
-app.whenReady().then(createWindow)
+// app.whenReady().then(() => {
+
+//   createWindow
+// })
+
+app.whenReady().then(() => {
+  try {
+    // This triggers Steam's internal RestartAppIfNecessary check.
+    // If the game was launched outside of Steam, it will close your app,
+    // relaunch it through Steam, and return true.
+    // >>>>>>>>>>>>>>>>>>>> uncomment when actual app ID is used >>>>>>>>>>>>>>
+    // if (steamworks.restartAppIfNecessary(STEAM_APP_ID)) {
+    //   app.quit()
+    //   return
+    // }
+
+    // Initialize the client. This verifies ownership and logs the user in.
+    const steamClient = steamworks.init(STEAM_APP_ID)
+    console.log(`Steam verified. Current User: ${steamClient.localUser.getSteamName()}`)
+
+    // Enable the Steam Overlay to paint correctly over your Phaser canvas
+    steamworks.electronEnableSteamOverlay()
+
+    // Steam check passed successfully, open your Quasar/Phaser application
+    createWindow()
+
+  } catch (error) {
+    console.error('Steamworks DRM Initialization Failed:', error)
+    // Force quit the app immediately if the ownership check fails
+    app.quit()
+  }
+})
 
 app.on('window-all-closed', () => {
   if (platform !== 'darwin') {
