@@ -17,6 +17,7 @@ export class TitleScene extends Scene {
   }
 
   changeScene() {
+    this.scale.startFullscreen()
     console.log('change scene called')
     this.scene.start('PlayScene')
   }

@@ -10,6 +10,7 @@
     "lint": "eslint -c ./eslint.config.js \"./src*/**/*.{js,cjs,mjs,vue}\"",
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
+    "dev:electron": "quasar dev -m electron",
     "build": "quasar build",
     "postinstall": "quasar prepare",
     "addElectron": "quasar mode add electron",
@@ -21,6 +22,7 @@
     "phaser": "^4.1.0",
     "pinia": "^3.0.1",
     "quasar": "^2.16.0",
+    "steamworks.js": "^0.4.0",
     "vue": "^3.5.22",
     "vue-router": "^5.0.3"
   },
