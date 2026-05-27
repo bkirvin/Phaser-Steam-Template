@@ -21,7 +21,9 @@ export default defineComponent({
   setup (props) {
     const changeScene = (e) => {
       if (!e.pointerType) {
-        if (e.key === ' ' || e.key === 'Spacebar') props.scene.changeScene()
+        if (e.key === ' ' || e.key === 'Spacebar') {
+          props.scene.changeScene()
+        }
       } else {
         props.scene.changeScene()
       }

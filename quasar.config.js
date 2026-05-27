@@ -171,6 +171,22 @@ export default defineConfig((/* ctx */) => {
       inspectPort: 5858,
 
       bundler: 'builder', // 'packager' or 'builder'
+      extendElectronMainConf (esbuildConfig) {
+        esbuildConfig.external = esbuildConfig.external || []
+        if (!esbuildConfig.external.includes('steamworks.js')) {
+          esbuildConfig.external.push('steamworks.js')
+        }
+      },
+      extendViteConf (viteCc) {
+        viteCc.build = viteCc.build || {}
+        viteCc.build.rollupOptions = viteCc.build.rollupOptions || {}
+
+        // This tells Vite to leave steamworks.js completely alone
+        viteCc.build.rollupOptions.external = [
+          ...(viteCc.build.rollupOptions.external || []),
+          'steamworks.js'
+        ]
+      },
 
       packager: {
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
