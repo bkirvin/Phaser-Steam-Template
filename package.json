@@ -10,6 +10,7 @@
     "lint": "eslint -c ./eslint.config.js \"./src*/**/*.{js,cjs,mjs,vue}\"",
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
+    "dev:electron": "quasar dev -m electron",
     "build": "quasar build",
     "postinstall": "quasar prepare",
     "addElectron": "quasar mode add electron",

@@ -23,7 +23,10 @@
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+const emit = defineEmits(['go-fullscreen-game'])
+
 const next = () => {
+  emit('go-fullscreen-game')
   router.push({ path: '/play'})
 }
 const instructions1 = `Welcome to the Electron Phaser Steam Template. This NPM project utilizes
